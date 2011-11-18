@@ -17,7 +17,8 @@ log = logging.getLogger(__name__)
 
 @view_config(context='velruse.api.AuthenticationComplete')
 def auth_complete_view(context, request):
-    end_point = request.registry.settings.get('velruse.end_point')
+    end_point = context.profile.get('end_point',
+                                    request.registry.settings.get('velruse.end_point'))
     token = generate_token()
     storage = request.registry.velruse_store
     if 'birthday' in context.profile:
