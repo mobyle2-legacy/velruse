@@ -12,7 +12,7 @@ def flat_url(url, **kw):
 
 
 def redirect_form(end_point, token):
-    """Generate a redirect form for POSTing"""
+    """Generate a redirect form for POSTing; autosubmitting itself"""
     return """
 <html>
 <head>
@@ -32,7 +32,6 @@ for (var i = 0; i < elements.length; i++) {
 </body>
 </html>
 """ % (end_point, token)
-
 
 def generate_token():
     """Generate a random token"""
